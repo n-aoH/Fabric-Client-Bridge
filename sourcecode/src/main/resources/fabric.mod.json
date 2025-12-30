@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "client-bridge",
+	"version": "${version}",
+	"name": "Client Bridge",
+	"description": "Bridges 2 separate minecraft clients with the power of sockets on your local computer. Doubles as an API tool.",
+	"authors": [
+		"No"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/client-bridge/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"clientbridge.api.ClientBridge"
+		],
+		"client": [
+			"clientbridge.api.ClientBridgeClient"
+		]
+	},
+	"mixins": [
+		"client-bridge.mixins.json",
+		{
+			"config": "client-bridge.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~1.21.10",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
